@@ -1,0 +1,70 @@
+.centra{
+    margin-left: auto;
+    margin-right: auto;
+}
+body,th,tr,td{
+    color: white !important;
+}
+th{
+    font-size:18px;
+    background-color: rgba(0, 0, 0, 0.849);
+}
+td{
+    font-size:16px;
+    background-color: rgba(0, 0, 0, 0.575);  
+}
+.form-control{
+    border-radius:0px;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: white;
+    font-size:15px;
+    text-shadow: 1px 1px 1px black;
+}
+.botao{
+    padding: 12px;
+    text-align: center;
+    color: rgb(0, 253, 241);
+    font-weight: 600;
+    background-color: rgba(0, 204, 255, 0.295);
+    border: 4px solid rgba(0, 204, 255, 0.644);
+    border-radius: 4px;
+    font-size:16px;
+    box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color .1s ease-in;
+}
+.botao:hover{
+    color: white;
+    background-color: rgba(0, 204, 255, 0.87);
+}
+.botao:active{
+    background-color: rgba(3, 3, 0, 0.589);
+}
+.txt{
+    font-size:17px;
+    padding: 5px auto;
+    color: white;
+}
+.critica,.sobre{
+    margin:10px auto 0px 10px;
+    border-top: 2px solid rgba(137, 43, 226, 0.63);
+    padding: auto 10px;
+    font-weight: 600;
+}
+.critica span,.sobre span{
+    font-size:20px;
+    background-color: rgba(137, 43, 226, 0.63);
+    padding: 5px 10px;
+}
+.critica p,.sobre p{
+    text-indent:12px;
+    font-weight: 500;
+    margin-top:8px;
+    text-shadow:1px 1px 1px rgba(0, 0, 0, 0.705);
+    font-size:15px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.938);
+}
+.sobre{
+    margin: 0px;
+    padding: 0px;
+}

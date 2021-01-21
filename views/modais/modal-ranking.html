@@ -1,0 +1,19 @@
+<table class="table table-bordered table-responsive table-striped">
+    <thead>
+        <tr>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Pontos</th>
+        </tr>
+    </thead>
+    <tbody id="tbody-ranking">
+        
+    </tbody>
+</table>
+<script>
+    $(function(){
+        $.post('listar_ranking.php','',function(response){
+            $('#tbody-ranking').html(response);
+        })
+    })
+</script>

@@ -1,0 +1,49 @@
+    <div class="panel-group" id="accordion"> 
+        <div class="panel panel-dark"> 
+            <div class="panel-heading"> 
+                <h4 class="panel-title"> 
+                    <a data-toggle="collapse" data-parent="#accordion" href="#app">1. Sobre a aplicação</a> 
+                </h4> 
+            </div> 
+            <div id="app" class="panel-collapse collapse in"> 
+                <div class="panel-body"> 
+                    <p>Esta aplicação é uma <b><i>tentativa</i></b> de replicar o <b>"sou angolano e conheço Angola"</b> e o famoso <b>"Quem quer ser rico"</b>. Todas as perguntas, as imagens e os sons foram extraidos dos aplicativos que referi. Este <i>"appzinho"</i>(termo que uso para me referir aos apps que crio) não foi concebido para ser publicado ou algo do tipo,mas sim para servir como uma especíe de <i>treinamento</i>, um esforço para cultivar os frutos da tão preciosa <i><b>experiência</b></i>, elemento que todo <i>programador(e não só)</i> que se preze deseja alcançar ao máximo.<br>Graças à Deus aprendi cedo que as sementes desse fruto nada mais são do que <i>horas e horas exercitando</i> sobre um assunto especifico <i>incansávelmente</i>!</p>
+                </div> 
+            </div> 
+        </div> 
+        <div class="panel panel-dark"> 
+            <div class="panel-heading"> 
+                <h4 class="panel-title"> 
+                    <a data-toggle="collapse" data-parent="#accordion" href="#dev">2. Sobre o Desenvolvedor</a> 
+                </h4> 
+            </div> 
+            <div id="dev" class="panel-collapse collapse"> 
+                <div class="panel-body"> 
+                    <p><b>Francisco Camalata Fuayenda Fetapi</b>,17 anos, morador do <i>Akongo</i>, aluno do <b><abbr title="Instituto Politécnico de Administração e Gestão">IPAG</abbr></b> da <b>Catumbela</b>,município de <b>Benguela</b>. Está a cursar <b>informática de Gestão</b> , sempre gostou de assuntos relacionados à <i><b>Tecnológia e computação</b></i>, é apaixonado por <b>Programação</b>, embora ainda seja um iniciante tem procurado construir aplicações simples para que dessa forma cresça e saiba mais sobre o assunto, esta aplicação é uma evidéncia disso!</p>
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+<form action="criticar.php">
+    <p><span class="txt"><span class="glyphicon glyphicon-comment"></span> Deixe a sua crítica:</span>
+        <textarea name="texto" class="form-control" style="width:70%;" rows="3"></textarea>
+    </p>
+    <button class="botao">Enviar Crítica</button>
+</form>
+
+<script>
+    $(function(){
+        $('form').submit(function(e){
+            e.preventDefault();
+            $.post($(this).attr('action'),$(this).serialize(),function(r){
+                window.location.reload();
+            });
+        });
+        $.post('txt_critica.php','critica=feita',function(response){
+            $('textarea').val(response);
+            if(response == 'L'){
+                $('form').css('display','none');
+            }
+        });
+    })
+</script>

@@ -1,0 +1,41 @@
+<form action="adicionar_pergunta.php" method="post" class="form_add">
+    <p>
+        Nivel: <select name="nivel" class="form-control">
+            <option value="1">Fácil</option>
+            <option value="2">Normal</option>
+            <option value="3">Difícil</option>
+        </select>
+    </p>
+    <p>
+        Pergunta:
+        <textarea name="pergunta" class="form-control" rows="3" required></textarea>
+    </p>
+    <div style="display: grid;grid-template: 'a b' auto/48% 48%;gap:2px;">
+        <p>A: <input type="text" name="alternativa[A]" class="form-control" required></p>
+        <p>B: <input type="text" name="alternativa[B]" class="form-control" required></p>
+        <p>C: <input type="text" name="alternativa[C]" class="form-control" required></p>
+        <p>D: <input type="text" name="alternativa[D]" class="form-control" required></p>
+        <p>Certa: 
+            <select name="alternativa[certa]" class="form-control" placeholder="Apenas a letra (A,B,C ou D)">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </p>
+        <p><br> <button class="btn btn-info">Enviar</button></p>
+    </div>
+    <input type="hidden" name="quem" value="user">
+</form>
+<script>
+    $(function() {
+        $('.form_add').submit(function(event) {
+            event.preventDefault();
+    
+            $.post($(this).attr('action'), $(this).serialize(), function(response) {
+                console.log(response);
+                window.location.reload();
+            })
+        });
+    })
+    </script>

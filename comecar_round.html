@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comecar Round 1</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" href="img/ic_new_game.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/round.css">
+</head>
+<body>
+    <div id="tudo" class="centra">
+        <header>
+            <h1 id="ronda">Primeira Ronda</h1>
+            <div class="f">
+                <h3>Pontos acumulados</h3>
+                <p id="pts"></p>
+                <div style="width:100%;background-color: rgba(0, 0, 0, 0.473);">
+                    <span style="opacity:0;margin-top:1.5%;margin-left:-30px;">carregando...</span>
+                    <div style="width:0%;height:40px;background-color: rgba(43, 61, 226, 0.336);text-align: center;"></div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            var ronda;
+           
+
+            var url = window.location.href;
+            var textLoading = $('.f div span');
+            var divLoading = $('.f div div');
+            var h1 = $('#ronda');
+            var nivel = localStorage.getItem('nivel');
+            if(url.includes('pontos')){
+                var pontos = url.match(/pontos=\d+/g)[0].split('=')[1];
+                console.log(pontos);
+                $('#pts').html(pontos);
+            }else{
+                $('#pts').html('0');
+            }
+
+            if(url.includes('nivel=1')){
+                ronda = "Primeira";
+                h1.html(ronda+" Ronda");
+            }else if(url.includes('nivel=2')){
+                ronda = "Segunda";
+                h1.html(ronda+" Ronda");
+            }else if(url.includes('nivel=3')){
+                ronda = "Terceira";
+                h1.html(ronda+" Ronda");
+            }else{
+                h1.html("Ronda Indefinida");
+            }
+
+            textLoading.css('opacity','1');
+            divLoading.animate({
+                width:'100%'
+            },3000,function(){
+                if(url.includes('relogio=sim')){
+                    localStorage.setItem('relogio','sim');
+                    window.location.replace("jogo.html");
+                }else{
+                    localStorage.setItem('relogio','nao');
+                    window.location.replace("jogo.html");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

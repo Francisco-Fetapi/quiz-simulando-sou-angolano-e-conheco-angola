@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link rel="shortcut icon" href="img/ic_new_game.png"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/final.css">
+    <script>
+        var som_vitoria = new Audio('./audios/vitoria.mp3');
+        var volume = localStorage.getItem('vol');
+        som_vitoria.play();
+        som_vitoria.volume = volume;
+        som_vitoria.ended = function(){
+            som_vitoria.play();
+        }
+    </script>
+</head>
+<body>
+    <div id="tudo" class="centra">
+        <header>
+            <h2>Muitos Parabéns</h2>
+        </header>
+        <main>
+            <h2>Clique aqui para voltar</h2>
+        </main>
+        <footer>
+            <h2>Voce ganhou mais <span id="pts"></span> pts</h2>
+        </footer>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $('main h2').click(function(){
+                window.history.back();
+            })
+            var tem_relogio = localStorage.getItem('relogio');
+
+            if(tem_relogio == 'sim'){
+                $('#pts').html('10.000');
+            }else{
+                $('#pts').html('5.000'); 
+            }
+        })
+    </script>
+</body>
+</html>

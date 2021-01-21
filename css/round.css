@@ -1,0 +1,52 @@
+@charset "utf-8";
+@font-face{
+    src:url("../fonts/blood.ttf");
+    font-family: "font";
+}
+*{
+    margin: 0px;
+    padding:0px;
+}
+body{
+    margin-top:-20px;
+    height:100vh;
+    background-image: linear-gradient(to top left, rgba(17, 57, 73, 0.534) 40%, rgba(9, 44, 85, 0.671) 60%);
+}
+#tudo{
+    width:100%;
+    max-width:500px;
+    background-image: url('../img/main_background.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    height:100vh;
+    position: relative;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 1px 1px black;
+}
+.f div{
+    position: relative;
+}
+.f div span{
+    position: absolute;
+    color: white;
+    text-shadow:3px 1px 1px black;
+}
+.f{
+    width: 100%;
+    position: absolute;   
+    bottom:0px;
+}
+h1{
+    position: relative;
+    top:20px;
+    font-family: "font";
+}
+.f h3{
+    margin-bottom:30px;
+    font-family: "font";
+}
+.f p{
+    margin-bottom:70px;
+    font-size:30px;
+}

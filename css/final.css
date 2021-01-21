@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+body{
+    height:100vh;
+    background-image: linear-gradient(to top left, rgba(17, 57, 73, 0.534) 40%, rgba(9, 44, 85, 0.671) 60%);
+}
+#tudo{
+    background: url('../img/one_million.png') no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    min-height:100vh;
+    width:100%;
+    max-width:500px;
+    position: relative;
+    
+}
+h2{
+    background-color: rgba(0, 0, 0, 0.486);
+    padding:8px 12px;
+    text-align: center;
+    width:100%;
+    font-size:32px;
+    text-shadow: 1px 1px 1px black;
+}
+header h2{
+    position: absolute;
+    top: 0px;
+}
+main h2{
+    position: absolute;
+    top:45%;
+    cursor: pointer;
+    background-color: rgba(19, 106, 219, 0.363);
+}
+footer h2{
+    position: absolute;
+    bottom: 0px;
+}

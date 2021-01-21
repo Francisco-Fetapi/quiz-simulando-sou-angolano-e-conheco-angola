@@ -1,0 +1,69 @@
+<form action="salvar_configs.php" method="post" enctype="multipart/form-data">
+
+    <p>
+        <span class="txt">Volume</span>
+        <input type="range" id="voll" name="vol" min="0" max="100" oninput="muda_vol(this.value)">
+        <output id="outVol" class="txt"></output>
+    </p>
+    <div id="confirmar" style="padding:12px 2px;display: flex;flex-flow: row nowrap;justify-content:space-between;">
+        <span class="txt">Confirmar respostas</span>
+        <div>
+            <label for="sim">Sim</label>
+            <input type="radio" name="conf" id="sim" value="sim">
+            <label for="nao">Não</label>
+            <input type="radio" name="conf" id="nao" value="nao">
+        </div>
+    </div>
+    <button type="submit" class="botao">Guardar configurações</button>
+</form>
+<script>
+        $('#msg').slideUp();
+        if(window.localStorage.getItem('vol')){
+            muda_vol(window.localStorage.getItem('vol')*100);
+        }
+        function muda_vol(val){
+            window.localStorage.setItem('vol',(val/100));
+            $('output').html(parseInt(val));
+            $('#voll').val(parseInt(val));
+        }
+        $.post('txt_critica.php','',function(response){
+            if(response == 'L'){ //nao esta logado
+                $(':file').parent().css('display','none');
+                $('.botao').css('display','none');
+                $('#confirmar').css('display','none');
+            }
+        });
+        if(!window.localStorage.getItem('confirmar')){
+            window.localStorage.setItem('confirmar','sim');
+            $('#sim').attr('checked','true');
+        }else{
+            var op = localStorage.getItem('confirmar');
+            $(`#${op}`).attr('checked','true');
+        }
+        $("[name='conf']").click(function(){
+            var esc = $("[name='conf']:checked").val();
+            localStorage.setItem('confirmar',esc);
+            console.log(esc);
+        })
+        $('form').submit(function(e){
+            
+            var file = document.querySelector('.file');
+            var info = file.files[0];
+            var size = info.size/(1024*1024); // em MB
+            var tipo = info.type;
+
+            if(!tipo.includes('audio')){//nao eh um audio
+                informar('não eh um audio!');
+            }
+            else if(Math.ceil(size)>15){//eh maior que 15 MB
+                informar('é maior que 15MB.Insira um arquivo menor que 15MB');
+            }
+            function informar(txt){
+                window.alert('Este arquivo '+txt);
+                e.preventDefault();
+                console.log(txt);
+            }
+            console.log(size,tipo);
+        });
+            
+</script>

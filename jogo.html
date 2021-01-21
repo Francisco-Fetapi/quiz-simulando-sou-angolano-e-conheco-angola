@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" href="img/ic_new_game.png" type="image/x-icon">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/jogo.css">
+    <script>
+    </script>
+</head>
+<body>
+    <div id="tudo" class="centra">
+        <header>
+            <h1 id="ronda"></h1>
+            <p id="pontosAtual">0 pt</p>
+            <div id="barra" style="display: none;width:100%;background-color: rgba(23, 70, 199, 0.377);text-align: center;box-shadow: inset 4px 1px 8px rgba(0, 0, 0, 0.705);">
+                <span style="position: absolute;margin-top:1.5%;font-size:19px;">20s</span>
+                <div style="width:100%;height:40px;background-color: rgba(16, 80, 219, 0.89);transition: all .5s linear;box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.705);"></div>
+            </div>
+
+            <div id="p">
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nostrum quisquam, dolor corporis nihil odit laborum nobis maiores. Ipsam debitis provident necessitatibus tempore iste soluta voluptate non fuga beatae deleniti!</p>
+            </div>
+        </header>
+
+        <main id="ops">
+            <ul class="alterns">
+                <li><span>A</span> Linha A</li>
+                <li><span>B</span> Linha B</li>
+                <li><span>C</span> Linha C</li>
+                <li><span>D</span> Linha D</li>
+            </ul>
+            <ul id="pp">
+                <li><span class="fa fa-group"></span> Público</li>
+                <li><span class="glyphicon glyphicon-phone-alt"></span> Ligar</li>
+                <li><span class="glyphicon glyphicon-share-alt"></span> Pular</li>
+                <li><span class="glyphicon glyphicon-sort-by-alphabet"></span> Só 2</li>
+            </ul>
+        </main>
+    </div>
+
+    <div class="modal fade" id="modal_certeza">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark centra">
+                <div class="modal-body text-center">
+                    <span> Tem certeza?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal2">
+        <div class="modal-dialog">
+            <div class="modal-content centra">
+                <div class="modal-header">
+                    <h2>Ligar <span class="glyphicon glyphicon-phone-alt"></span></h2>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" data-res="Essa é fácil, a alternativa certa é a ">
+                            &nbsp;Francisco Fetapi
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </li>
+                        <li class="list-group-item" data-res="Francamente!!! A alternativa certa é a ">
+                            &nbsp;Edito Donato
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </li>
+                        <li class="list-group-item" data-res="Seja feliz!! a alternativa certa é a ">
+                            &nbsp;Xavier Faustino
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/jogo.js"></script>
+    <script>
+        $(function(){
+            var url = window.location.href;
+            var som_durante = new Audio('audios/som_durante_o_jogo.mp3');
+            setTimeout(()=>{
+                toca();
+            },300);    
+            function toca(){
+                som_durante.volume = 0.05;
+                som_durante.play();
+                var int = setInterval(()=>{
+                    som_durante.volume+=0.05;
+                    limite_vol_som = localStorage.getItem('vol');
+                    if(som_durante >= limite_vol_som){
+                        som_durante.volume = limite_vol_som;
+                        clearInterval(int);
+                    }
+                },1000);
+            }
+            som_durante.onended = function(){
+                this.play();
+            }
+            
+        });
+    </script>
+</body>
+</html>

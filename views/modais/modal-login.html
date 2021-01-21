@@ -1,0 +1,70 @@
+<form action="login.php" method="POST" style="text-align: center;">
+
+        <span class="txt">Nome:</span> <input type="text" style="width:50%;" name="nome" class="form-control centra">
+        <span class="txt">Senha:</span> <input type="password" style="width:50%;" name="senha" placeholder="6 digitos"
+                class="form-control centra">
+        <br>
+        <div id="msg"></div>
+        <br>
+        <button type="submit" style="width:30%;" class="botao">Entrar</button>
+</form>
+<script>
+        $(function () {
+                $('#msg').slideUp();
+                setTimeout(() => {
+                        informar('warning', 'Se os dados do usuario inserido não existirem eles serãos criados e ele passará a existir!', 8)
+                }, 1000);
+                function informar(tipo, msg, seg) {
+                        $('#msg').removeClass();
+                        if (!$('#msg').hasClass('alert')) {
+                                $('#msg').addClass('alert')
+                        }
+                        if (!$('#msg').hasClass('alert-' + tipo)) {
+                                $('#msg').addClass('alert-' + tipo);
+                        }
+                        $('#msg').html(`<span>` + msg + `</span>`);
+                        $('#msg').slideDown(1000);
+                        setTimeout(function () {
+                                $('#msg').slideUp(500);
+                        }, seg * 1000);
+                }
+                $('form').submit(function (e) {
+                        form = $(this).serialize().split('&');
+                        var nome = $(':text:first').val();
+                        var senha = $(':password:first').val();
+
+                        if(nome == 'admin' && senha=='admin'){
+                            //nao precisa fazer nada!    
+                        }else{
+                                e.preventDefault();
+                                if (nome.trim() == '' || senha == '') {
+                                informar('danger', 'O campo NOME e o campo SENHA não podem estar vazios!', 7);
+                                }
+                                else if (senha.length <= 5) {
+                                        informar('danger', 'A senha tem de ter no minimo 6 digitos!', 4);
+                                } else if (nome.trim().length <= 10) {
+                                        informar('danger', 'Nome curto demais(10 digitos no minimo)', 3);
+                                }
+                                else if (!(/[A-Z]\w+\s[A-Z]\w+/.test(nome))) {
+                                        informar('danger', 'insira o seu nome e sobrenome apenas.(Iniciais maiusculas)', 4);
+                                } else {
+                                        $.post($(this).attr('action'), $(this).serialize(), function (response) {
+                                                if (response == 1) {
+                                                        console.log('Usuario existe');
+                                                        window.location.reload();       
+                                                } else {
+                                                        console.log('Usuario nao existe');
+                                                        informar('warning','Os dados do usuario que inseriste não existem, eles estão sendo criados!',4);
+                                                        setTimeout(() => {
+                                                                window.location.reload();       
+                                                        }, 5000);
+                                                }
+                                                
+                                        });
+                                }
+                        }
+
+                });
+
+        })
+</script>

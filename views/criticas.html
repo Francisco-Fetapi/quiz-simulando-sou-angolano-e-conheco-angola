@@ -1,0 +1,9 @@
+<div id="criticas">
+</div>
+<script>
+    $(function(){
+        $.post('lista_criticas.php','',function(res){
+            $('#criticas').html(res);
+        });
+    })
+</script>
