@@ -37,4 +37,4 @@ Quase que ia me esquecendo: O projeto clonado deve ser movido para a pasta onde 
 
 ##
 
-Se seguiu todos os passos acima já pode acessar o site <a href="http://localhost/quiz-simulando-sou-angolano-e-conheco-angola">clicando aqui</a>
+Se seguiu todos os passos acima já pode acessar o sistema <a href="http://localhost/quiz-simulando-sou-angolano-e-conheco-angola">clicando aqui</a>
