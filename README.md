@@ -1,5 +1,11 @@
 # Quiz - Simulando o Sou Angolano e Conheço Angola
-
+<p align="center">
+<a href="https://github.com/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola?style=plastic"></a>
+<a href="https://github.com/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola"><img alt="GitHub license" src="https://img.shields.io/badge/Exercise-For%20trainning-orange"></a>
+<a href="https://github.com/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola?style=plastic"></a>
+<a href="https://github.com/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola?style=plastic"></a>
+<a href="https://github.com/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola"><img alt="GitHub license" src="https://img.shields.io/github/license/Francisco-Fetapi/quiz-simulando-sou-angolano-e-conheco-angola?style=plastic"></a>
+</p>
 Este é um projeto criado nos `meados de 2020` para exercitar o `PHP`, principlamente assuntos ligados a `arquitetura e POO`, hoje percebo que na época eu não entendia absolutamente NADA sobre nem um nem outro, é só ver o quanto a arquitetura e o código do projeto estão SUJOS😅, apesar de tudo não tenciono alterar nenhuma linha de código desse projeto, foram os meus primeiros passos na linguagem `PHP` e não quero apagá-los, quero puder vê-los e me divertir com isso sempre que quiser. "VER" A MINHA PRÓPRIA EVOLUÇÃO É FASCINANTE.❤
 
 # Motivação
